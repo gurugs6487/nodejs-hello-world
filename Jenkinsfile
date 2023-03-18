@@ -4,11 +4,6 @@ pipeline {
         DOCKER_IMAGE_NAME = "ggsdocks/nodejs-hello-world-app"
     }
     stages {
-        stage ('Checkout SCM') {
-            steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Github_Login', url: 'https://github.com/gurugs6487/nodejs-hello-world.git']])
-            }
-        }
         stage ('Build') {
             steps {
                 nodejs('nodejs-v14.21') {
